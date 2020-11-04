@@ -6,8 +6,8 @@ GLIB_FLAGS=`pkg-config --cflags --libs glib-2.0`
 index_slow: index-slow.c build/sqlite3.o build/vector.o build/utils.o build/db.o
 	$(CC) -o index_slow $^ -lpthread -ldl $(CFLAGS) 
 
-#index: index.c build/sqlite3.o build/vector.o build/utils.o build/db.o
-#	$(CC) -o index $^ -lpthread -ldl $(CFLAGS) 
+index: index.c build/sqlite3.o build/vector.o build/utils.o build/db.o
+	$(CC) -o index $^ -lpthread -ldl $(CFLAGS) 
 
 index_memory: index-memory.c build/vector.o build/utils.o build/doc_map.o
 	$(CC) -o index-memory $^ -lpthread -ldl $(CFLAGS) $(GLIB_FLAGS)
