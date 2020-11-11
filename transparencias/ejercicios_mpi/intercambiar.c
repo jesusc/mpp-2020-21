@@ -16,18 +16,6 @@ void imprimir(int rank, double *datos, int N)
 
 void intercambiar(double *x, int N, int p1, int p2)
 {
-  int rank;
-  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-  if (rank == p1) {
-    MPI_Send(x, N, MPI_DOUBLE, p2, 100, MPI_COMM_WORLD);
-    MPI_Recv(x, N, MPI_DOUBLE, p2, 100, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-  } else {
-    double *buffer = (double *) malloc(N * sizeof(double));
-    MPI_Recv(buffer, N, MPI_DOUBLE, p1, 100, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    MPI_Send(x, N, MPI_DOUBLE, p1, 100, MPI_COMM_WORLD);
-    memcpy(x, buffer, N);
-    free(buffer);  
-  }
 }
 
 void main(int argc, char *argv[])
