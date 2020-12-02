@@ -69,7 +69,7 @@ int main(int argc, char **argv)
 		diffnorm += (xnew[i][j] - xlocal[i][j]) * 
 		            (xnew[i][j] - xlocal[i][j]);
 	    }
-
+	
 	/* Only transfer the interior points */
 	for (i=i_first; i<=i_last; i++) 
 	    for (j=1; j<maxn-1; j++) 
